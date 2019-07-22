@@ -18,6 +18,8 @@ location	Where's the nearest convenience store?
 
 number		How many hours are there in a day?
 
+图像识别	      What do you see?
+
 
 需要做的事：
 
