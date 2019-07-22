@@ -21,5 +21,5 @@ number		How many hours are there in a day?
 
 需要做的事：
 
-和树莓派的拍照整合（树莓派拍照后放在test_images里面，每次拍新的照片覆盖之前的）
+和树莓派的拍照整合（树莓派拍照后放在test_images里面，每次拍新的照片覆盖之前的，在predict.py中整合）
 
