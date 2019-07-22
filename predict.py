@@ -36,7 +36,7 @@ def question_analytics(txt):
 
 
 def answer_pool(keywords,question_type):
-
+    keywords = ','.join(keywords)
     if question_type=='abbreviation':
         answer = 'What? We parrots never use abbreviations.'
 
@@ -47,10 +47,15 @@ def answer_pool(keywords,question_type):
             answer = "Parrots have no ideas how humans measure time."
         elif ('breakfast' in keywords) or ('lunch' in keywords) or ('dinner' in keywords):
             answer = "I'm a robot parrot. I only consume electricity."
+        elif 'money' in keywords:
+            answer = 'Money? Useless!'
+        elif ('girlfriend' in keywords) or ('boyfriend' in keywords):
+            answer = 'You will always be single, I promise.'
         else:
             answer = "I've never heard of that. Why not check it on your mobile phone ?"
 
     if question_type=='entity':
+        keywords = keywords.split(',')
         answer = ''
         for i in range(len(keywords)):
             if i!=0:
@@ -62,7 +67,10 @@ def answer_pool(keywords,question_type):
             answer+=" is not included in a parrot's vocabulary."
 
     if question_type=='human':
-        answer="Don't ask me about humans. I don't know anyone of you."
+        if len(keywords)==0:
+            answer="My master never gives me a name. But sometimes they call me artificial idiot parrot."
+        else:
+            answer="Don't ask me about humans. I don't know anyone of you."
 
     if question_type=='location':
         answer="I have no sense of direction. Why not check your google map ?"
