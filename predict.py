@@ -51,35 +51,52 @@ def answer_pool(keywords,question_type):
             answer = 'Money? Useless!'
         elif ('girlfriend' in keywords) or ('boyfriend' in keywords):
             answer = 'You will always be single, I promise.'
+        elif 'friend' in keywords:
+            answer = 'Sadly. My master has never created any friend for me.'
+        elif 'hobby' in keywords:
+            answer = "My hobby is to generate bugs so that my masters will get anxious, haha"
         else:
             answer = "I've never heard of that. Why not check it on your mobile phone ?"
 
     if question_type=='entity':
-        keywords = keywords.split(',')
-        answer = ''
-        for i in range(len(keywords)):
-            if i!=0:
-                answer+=' and '
-            answer+=keywords[i]
-        if len(keywords)>1:
-            answer+=" are not included in a parrot's vocabulary."
+        if 'food' in keywords:
+            answer = "I'm a robot parrot. I only consume electricity."
+        elif 'hobby' in keywords:
+            answer = "My hobby is to generate bugs so that my masters will get anxious, haha."
         else:
-            answer+=" is not included in a parrot's vocabulary."
+            keywords = keywords.split(',')
+            answer = ''
+            for i in range(len(keywords)):
+                if i!=0:
+                    answer+=' and '
+                answer+=keywords[i]
+            if len(keywords)>1:
+                answer+=" are not included in a parrot's vocabulary."
+            else:
+                answer+=" is not included in a parrot's vocabulary."
 
     if question_type=='human':
         if len(keywords)==0:
             answer="My master never gives me a name. But sometimes they call me artificial idiot parrot."
+        elif 'master' in keywords:
+            answer="I have 4 masters. They are the most handsome guys in the world."
+        elif ('mother' in keywords) or ('father' in keywords):
+            answer="My masters are my mothers and fathers."
         else:
             answer="Don't ask me about humans. I don't know anyone of you."
 
     if question_type=='location':
-        answer="I have no sense of direction. Why not check your google map ?"
+        if len(keywords)==0:
+            answer="I'm from the magical world of ones and zeros."
+        else:
+            answer="I have no sense of direction. Why not check your google map ?"
 
     if question_type=='number':
-        answer="I've never learned math. I can't even count from 1 to 100. So please don't ask me about numbers again."
-
+        if len(keywords)==0 or ('age' in keywords):
+            answer="I'm 10 days old. My master created me just 10 days ago."
+        else:
+            answer="I've never learned math. I can't even count from 1 to 100. So please don't ask me about numbers again."
     return answer
-
 
 def confirm():
     ans = ""
